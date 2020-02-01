@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Helicopter : MonoBehaviour
@@ -34,7 +35,7 @@ public class Helicopter : MonoBehaviour
     void FixedUpdate()
     {
         float airDensity = 1 - transform.position.y / maxHeight;
-        rotor.transform.rotation *= Quaternion.Euler(0, Mathf.Clamp(rotorStrenght,0,50), 0);
+        rotor.transform.rotation *= Quaternion.Euler(0,0, Mathf.Clamp(rotorStrenght,0,50));
 
         Vector3 gravityVector = new Vector3(0, -gravity, 0);
 
@@ -79,6 +80,16 @@ public class Helicopter : MonoBehaviour
     private Vector3 GetRight()
     {
         return Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * Vector3.right;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.relativeVelocity.magnitude > 25)
+        {
+            EditorSceneManager.LoadScene(0);
+            Destroy(gameObject);
+        }
     }
 
 }
