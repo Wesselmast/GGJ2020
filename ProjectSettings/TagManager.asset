@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Patient
   - Building
+  - Car
   layers:
   - Default
   - TransparentFX

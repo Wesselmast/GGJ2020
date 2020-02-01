@@ -11,7 +11,7 @@ public class PatientSpawner : MonoBehaviour {
     private bool notDone = true;
 
     private void Start() {
-        player = GameObject.FindObjectOfType<Helicopter>().transform;
+        player = GameObject.FindObjectOfType<CarController>().transform;
     }
 
     private void Update() {

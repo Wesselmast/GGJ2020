@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour {
+
     [SerializeField]
     private GameObject[] extraTiles;
 
