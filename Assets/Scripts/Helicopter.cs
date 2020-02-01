@@ -17,6 +17,7 @@ public class Helicopter : MonoBehaviour
     private float yaw;
 
     public float rotorStrenght;
+    private Vector3 forward;
     // Update is called once per frame
     void Update()
     {
@@ -48,11 +49,11 @@ public class Helicopter : MonoBehaviour
 
         transform.rotation = Quaternion.AngleAxis(pitch, transform.right) * Quaternion.AngleAxis(yaw ,Vector3.up);
 
-        Vector3 forward = gravityVector * Time.deltaTime + transform.up * rotorStrenght * Time.deltaTime;
+        forward = gravityVector * Time.deltaTime + transform.up * rotorStrenght * Time.deltaTime;
+
         transform.position += forward;
 
-        if(transform.position.y < 0.5f)
-        {
+        if (transform.position.y < 0.5f) {
             transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
         }
     }
