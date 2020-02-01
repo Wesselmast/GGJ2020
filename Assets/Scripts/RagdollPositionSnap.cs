@@ -36,4 +36,9 @@ public class RagdollPositionSnap : MonoBehaviour
             Debug.Log("patient");
         }
     }
+
+    IEnumerator MoveToTarget() {
+
+        yield return new WaitForSeconds(3);
+    }
 }

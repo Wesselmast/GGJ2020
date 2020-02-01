@@ -32,12 +32,12 @@ public class Helicopter : MonoBehaviour
             rotorStrenght = 0;
         }
 
-        if (rotorStrenght > maxRotorSpeed)
+        if (rotorStrenght >= maxRotorSpeed)
         {
             rotorStrenght = maxRotorSpeed;
         }
 
-        if (Input.GetAxisRaw("Jump") != 0)
+        if (Input.GetAxisRaw("Trigger") != 0 || Input.GetAxisRaw("Jump") != 0)
         {
             rotorStrenght += rotorSpeed * 2 * Time.deltaTime;
             
@@ -48,7 +48,8 @@ public class Helicopter : MonoBehaviour
 
         transform.rotation = Quaternion.AngleAxis(pitch, transform.right) * Quaternion.AngleAxis(yaw ,Vector3.up);
 
-        transform.position += gravityVector * Time.deltaTime + transform.up * rotorStrenght * Time.deltaTime;
+        Vector3 forward = gravityVector * Time.deltaTime + transform.up * rotorStrenght * Time.deltaTime;
+        transform.position += forward;
 
         if(transform.position.y < 0.5f)
         {
