@@ -41,4 +41,8 @@ public class UIIcons : MonoBehaviour {
         float dist = Vector2.Distance(new Vector2(target.position.x, target.position.z), new Vector2(player.position.x, player.position.z));
         distanceText.text = dist.ToString("F1") + "m";
     }
+
+    public void SetTarget(Transform target) {
+        this.target = target;
+    }
 }
