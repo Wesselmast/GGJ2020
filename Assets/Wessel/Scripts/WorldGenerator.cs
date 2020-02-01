@@ -15,17 +15,28 @@ public class WorldGenerator : MonoBehaviour {
     [SerializeField]
     private Transform player;
 
-    [SerializeField]
-    private float loadingDistance = 100;
+    public  float loadingDistance = 100;
 
     private GameObject[] spawnedTiles;
 
     private float timer;
 
+    private static WorldGenerator instance;
+    public static WorldGenerator Instance { get { return instance; } }
+
+    private void Awake() {
+        if (instance != null && instance != this) {
+            Destroy(gameObject);
+        }
+        else {
+            instance = this;
+        }
+    }
+
     private void Start() {
         Spawn(homeTile, 0, 0);
 
-        int worldSize = 10;
+        int worldSize = 15;
 
         for (int x = -worldSize; x < worldSize + 1; x++) {
             for (int y = -worldSize; y < worldSize + 1; y++) {
@@ -43,7 +54,7 @@ public class WorldGenerator : MonoBehaviour {
     }
 
     private void Update() {
-        if (timer >= .5f) {
+        if (timer >= .75f) {
             foreach (Transform child in transform) {
                 float dist = Vector2.Distance(new Vector2(child.position.x, child.position.z), new Vector2(player.position.x, player.position.z));
                 child.gameObject.SetActive(dist < loadingDistance);
