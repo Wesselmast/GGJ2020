@@ -9,11 +9,16 @@ public class UIIcons : MonoBehaviour {
     private Image img = null;
     [SerializeField]
     private Transform target = null;
+    [SerializeField]
+    private Text distanceText = null;
+
+    private Transform player = null;
 
     private Camera camera = null;
 
     private void Start() {
         camera = GetComponent<Camera>();
+        player = FindObjectOfType<Helicopter>().transform;
     }
 
     void Update() {
@@ -32,7 +37,8 @@ public class UIIcons : MonoBehaviour {
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         img.transform.position = pos;
-
-
+        
+        float dist = Vector2.Distance(new Vector2(target.position.x, target.position.z), new Vector2(player.position.x, player.position.z));
+        distanceText.text = dist.ToString("F1") + "m";
     }
 }
