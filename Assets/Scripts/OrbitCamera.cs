@@ -9,27 +9,41 @@ public class OrbitCamera : MonoBehaviour
     private float pitch;
     private float yaw;
 
+    private Camera mainCam;
+    private float minFov;
+    private float currentFov;
+
+    private Helicopter heli;
+
     private Vector3 cameraTargetPosition;
     public LayerMask collisionMask;
 
     private float autoCameraTimer;
 
+    private Vector3 prevPosition;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        heli = target.GetComponent<Helicopter>();
+
+        mainCam = GetComponent<Camera>();
+        minFov = mainCam.fieldOfView;
         autoCameraTimer = 4f;
+        currentFov = minFov;
     }
 
     private void Update()
     {
+
         if (Input.GetAxis("HorizontalCamera") == 0f && Input.GetAxis("VerticalCamera") == 0f) {
             // no camera input
             autoCameraTimer -= Time.deltaTime;
             if (autoCameraTimer < 0) {
                 float difference = Mathf.DeltaAngle(target.eulerAngles.y, transform.eulerAngles.y);
                 difference = Mathf.Clamp(difference, -30, 30);
-                Debug.Log(difference);
                 if (difference < 0) {
                     yaw -= difference * Time.deltaTime;
                 } else {
@@ -56,6 +70,12 @@ public class OrbitCamera : MonoBehaviour
 
         transform.position = cameraTargetPosition;
 
+    }
+
+    private void LateUpdate() {
+        currentFov = Mathf.Lerp(currentFov, minFov + heli.rotorStrenght, Time.deltaTime);
+        mainCam.fieldOfView = currentFov;
+        prevPosition = target.position;
     }
 
     private void CameraCollision() {

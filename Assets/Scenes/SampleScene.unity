@@ -320,9 +320,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotor: {fileID: 2124096496}
-  rotorSpeed: 5
+  rotorSpeed: 6
   rotateSpeed: 32
-  maxRotorSpeed: 25
+  maxRotorSpeed: 27
   gravity: 22
   rotorStrenght: 2
 --- !u!1 &904423483
