@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WorldGenerator : MonoBehaviour {
     [SerializeField]
@@ -24,6 +25,8 @@ public class WorldGenerator : MonoBehaviour {
     private static WorldGenerator instance;
     public static WorldGenerator Instance { get { return instance; } }
 
+    public static event Action OnLoadWorld = delegate { };
+
     private void Awake() {
         if (instance != null && instance != this) {
             Destroy(gameObject);
@@ -41,9 +44,15 @@ public class WorldGenerator : MonoBehaviour {
         for (int x = -worldSize; x < worldSize + 1; x++) {
             for (int y = -worldSize; y < worldSize + 1; y++) {
                 if (x == 0 && y == 0) continue;
-                Spawn(extraTiles[Random.Range(0, extraTiles.Length)], x, y);
+                Spawn(extraTiles[UnityEngine.Random.Range(0, extraTiles.Length)], x, y);
             }
         }
+        StartCoroutine(SpawnedWorld());
+    }
+
+    IEnumerator SpawnedWorld() {
+        yield return null;
+        OnLoadWorld();
     }
 
     void Spawn(GameObject tile, int xPos, int zPos) {

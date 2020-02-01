@@ -30,11 +30,14 @@ public class Car : MonoBehaviour {
         while (true) {
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
             if (Vector3.Distance(transform.position, targetWaypoint) < 1.0) {
-                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
-                targetWaypoint = waypoints[targetWaypointIndex];
-                yield return StartCoroutine(TurnToFace(targetWaypoint));
+                if (transform.position == targetWaypoint) {
+                    targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+                    targetWaypoint = waypoints[targetWaypointIndex];
+                }
+                yield return StartCoroutine(TurnToFace(waypoints[(targetWaypointIndex + 1) % waypoints.Length]));
             }
-            yield return null;
+
+                yield return null;
         }
     }
 

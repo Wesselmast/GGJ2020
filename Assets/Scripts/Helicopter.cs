@@ -65,8 +65,6 @@ public class Helicopter : MonoBehaviour
         float correctiveAngle = Vector3.SignedAngle(transform.up, Vector3.Cross(transform.forward, GetRight()) * Mathf.Sign(transform.up.y), transform.forward);
         float correctivePitchAngle = Vector3.Angle(Vector3.Cross(Vector3.up, GetRight()), transform.forward) / 90 - 1;
 
-        Debug.Log(correctivePitchAngle);
-
         rb.AddRelativeTorque(Mathf.Sign(correctiveAngle) * correctivePitchAngle * correctionStrenght * Vector3.forward);
 
 
