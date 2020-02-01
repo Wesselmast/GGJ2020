@@ -29,7 +29,7 @@ public class PlayerQuestManager : MonoBehaviour {
 
     private void Start() {
         WorldGenerator.OnLoadWorld += OnLoad;
-        player = GameObject.FindObjectOfType<Helicopter>().transform;
+        player = GameObject.FindObjectOfType<CarController>().transform;
         spawnerDistance = startSpawnerDistance;
     }
 

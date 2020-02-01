@@ -10,22 +10,30 @@ public class PatientSpawner : MonoBehaviour {
     private GameObject instance;
     private bool active = false;
 
-<<<<<<< HEAD
-    public void Spawn() {
-        instance = Instantiate(ragdoll, transform.position, transform.rotation);
-        Camera.main.GetComponent<UIIcons>().SetTarget(transform); 
-        Debug.Log("DONE");
-        active = true;
-=======
+    private UIIcons icons;
+    private SphereCollider col;
+
     private void Start() {
-        player = GameObject.FindObjectOfType<CarController>().transform;
->>>>>>> 1e4336d5f547cbc902556e55bbb3aa997431aa61
+        icons = Camera.main.GetComponent<UIIcons>();
+        col = GetComponent<SphereCollider>();
+    }
+
+    public void Spawn() {
+        instance = Instantiate(ragdoll, transform.position + new Vector3(0.0f, 2f, 0.0f), transform.rotation);
+        active = true;
+    }
+
+    private void Update() {
+        if (!active) return;
+        icons.SetTarget(transform);
+        //col.center = instance.transform.position;
     }
 
     private void OnTriggerEnter(Collider other) {
         if (!active) return;
         if (other.tag == "Pawn") {
             PlayerQuestManager.Instance.OnGrabPatient();
+            active = false;
         }
     }
 }

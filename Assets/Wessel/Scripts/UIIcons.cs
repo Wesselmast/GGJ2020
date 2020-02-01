@@ -18,7 +18,7 @@ public class UIIcons : MonoBehaviour {
 
     private void Start() {
         camera = GetComponent<Camera>();
-        player = FindObjectOfType<Helicopter>().transform;
+        player = FindObjectOfType<CarController>().transform;
     }
 
     void Update() {

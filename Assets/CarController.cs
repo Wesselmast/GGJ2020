@@ -30,8 +30,8 @@ public class CarController : MonoBehaviour
         rb.MovePosition(transform.position + transform.forward * speed * Time.fixedDeltaTime);
         rb.AddRelativeTorque(Vector3.up * Input.GetAxisRaw("Horizontal") * turnSpeed);
 
-        Quaternion targetRotation = Quaternion.Euler(0, 0, -Input.GetAxisRaw("Horizontal") * 18);
-        Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 25);
+        Quaternion targetRotation = Quaternion.Euler(0, 0, -Input.GetAxisRaw("Horizontal") * 7);
+        Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 12.5f);
 
         speed += Time.deltaTime * accelaration;
         speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
