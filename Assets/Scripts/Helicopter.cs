@@ -37,7 +37,7 @@ public class Helicopter : MonoBehaviour
             rotorStrenght = maxRotorSpeed;
         }
 
-        if (Input.GetAxisRaw("Jump") != 0)
+        if (Input.GetAxisRaw("Trigger") != 0)
         {
             rotorStrenght += rotorSpeed * 2 * Time.deltaTime;
             
