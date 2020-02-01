@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Helicopter : MonoBehaviour
 {
 
@@ -10,6 +11,8 @@ public class Helicopter : MonoBehaviour
     public float rotorSpeed;
     public float rotateSpeed;
     public float maxRotorSpeed;
+    public float maxHeight;
+    public float correctionStrenght;
 
     public float gravity;
 
@@ -18,11 +21,20 @@ public class Helicopter : MonoBehaviour
 
     public float rotorStrenght;
     private Vector3 forward;
-    // Update is called once per frame
-    void Update()
+
+    private Rigidbody rb;
+
+    private void Start()
     {
 
-        rotor.transform.rotation *= Quaternion.Euler(0, rotorStrenght, 0);
+        rb = GetComponent<Rigidbody>();
+
+    }
+
+    void FixedUpdate()
+    {
+        float airDensity = 1 - transform.position.y / maxHeight;
+        rotor.transform.rotation *= Quaternion.Euler(0, Mathf.Clamp(rotorStrenght,0,50), 0);
 
         Vector3 gravityVector = new Vector3(0, -gravity, 0);
 
@@ -44,17 +56,31 @@ public class Helicopter : MonoBehaviour
             
         }
 
-        pitch += rotateSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
-        yaw += rotateSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
+        Vector3 controllTorque = new Vector3(Input.GetAxisRaw("Vertical") * 2, 0, 0);
+        Vector3 torque = controllTorque - (Vector3.up * -Input.GetAxisRaw("Horizontal") * rotateSpeed);
 
-        transform.rotation = Quaternion.AngleAxis(pitch, transform.right) * Quaternion.AngleAxis(yaw ,Vector3.up);
+        rb.AddRelativeTorque(torque * rotateSpeed, ForceMode.Force);
 
-        forward = gravityVector * Time.deltaTime + transform.up * rotorStrenght * Time.deltaTime;
+        //currectivetorque
+        float correctiveAngle = Vector3.SignedAngle(transform.up, Vector3.Cross(transform.forward, GetRight()) * Mathf.Sign(transform.up.y), transform.forward);
+        float correctivePitchAngle = Vector3.Angle(Vector3.Cross(Vector3.up, GetRight()), transform.forward) / 90 - 1;
 
-        transform.position += forward;
+        Debug.Log(correctivePitchAngle);
+
+        rb.AddRelativeTorque(Mathf.Sign(correctiveAngle) * correctivePitchAngle * correctionStrenght * Vector3.forward);
+
+
+        rb.AddRelativeForce(Vector3.up * rotorStrenght * airDensity,ForceMode.Force);
+        rb.AddForce(Vector3.down * gravity);
 
         if (transform.position.y < 0.5f) {
             transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
         }
     }
+
+    private Vector3 GetRight()
+    {
+        return Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * Vector3.right;
+    }
+
 }
