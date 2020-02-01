@@ -85,7 +85,7 @@
 				float NdotH = dot(normal, halfVector);
 
 				float specularIntensity = pow(NdotH * lightIntensity, _Glossiness * _Glossiness);
-				float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
+				float specularIntensitySmooth = smoothstep(0.95, 0.01, specularIntensity);
 				float4 specular = specularIntensitySmooth * _SpecularColor;
 
 				float4 rimDot = 1 - dot(viewDir, normal);
