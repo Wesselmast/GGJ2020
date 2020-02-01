@@ -30,7 +30,10 @@ public class BuildingGenerator : MonoBehaviour {
             heightOffset += SpawnPieceLayer(middleParts, heightOffset);
         }
 
-        SpawnPieceLayer(topParts, heightOffset);
+        heightOffset += SpawnPieceLayer(topParts, heightOffset);
+
+        GetComponent<BoxCollider>().center = new Vector3(-0.5f, heightOffset / 20, -0.5f);
+        GetComponent<BoxCollider>().size   = new Vector3(1, heightOffset / 10, 1);
     }
 
     float SpawnPieceLayer(GameObject[] pieceArray, float inputHeight) {
@@ -44,7 +47,7 @@ public class BuildingGenerator : MonoBehaviour {
         clone.transform.SetParent(this.transform);
         clone.transform.localScale = transform.localScale;
 
-        float heightOffset = bounds.size.y * transform.parent.localScale.y;
+        float heightOffset = bounds.size.y * transform.localScale.y * 10;
         return heightOffset;
     }
 

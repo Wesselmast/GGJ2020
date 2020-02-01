@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7599520894186034003}
   - component: {fileID: 7599520894186034000}
+  - component: {fileID: 941920590860137770}
   m_Layer: 0
   m_Name: BuildingCreator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7599520894186034003
 Transform:
@@ -43,11 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b491d0112b307d84bbcd80bb81c7225d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPieces: 2
-  maxPieces: 4
+  minPieces: 4
+  maxPieces: 12
   baseParts:
-  - {fileID: 100002, guid: 9a249853357ca6342ad2c7f248a9eaaa, type: 3}
+  - {fileID: -927199367670048503, guid: 0c32fb52656e8a4439f68d342185cfbd, type: 3}
   middleParts:
-  - {fileID: 100002, guid: 928e9a9725d038943a9044e60f8229f7, type: 3}
+  - {fileID: -927199367670048503, guid: 6654cf37eb5445a42a6eaa0df1f3de7d, type: 3}
   topParts:
-  - {fileID: 100002, guid: 1a22f99ea3af33644aa9fbce29aebdff, type: 3}
+  - {fileID: -927199367670048503, guid: 94128964625506740bde4853d769fa5c, type: 3}
+--- !u!65 &941920590860137770
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599520894186034001}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: -0.5}

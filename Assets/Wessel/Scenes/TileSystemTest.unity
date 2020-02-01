@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.1
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 163417806}
   - component: {fileID: 163417805}
   - component: {fileID: 163417804}
+  - component: {fileID: 163417809}
   m_Layer: 0
   m_Name: Heli
   m_TagString: Untagged
@@ -226,12 +227,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163417803}
   m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 3, z: -5}
+  m_LocalPosition: {x: 0, y: 80, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
+--- !u!54 &163417809
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163417803}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &626439478
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,10 +377,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc9de376b072f4479733e2eff623847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  extraTiles: []
+  extraTiles:
+  - {fileID: 3193491872939923550, guid: 9ef44e6cccc6fe84ebf4f3112f941453, type: 3}
+  - {fileID: 3193491872939923550, guid: 3ac2ec8bd3e5a2c4bb53119b03e7233d, type: 3}
   patientTiles: []
-  homeTile: {fileID: 3193491872939923550, guid: 9ef44e6cccc6fe84ebf4f3112f941453,
+  homeTile: {fileID: 3193491872939923550, guid: 0177b8c9db5186046b4aef3d3f29fb76,
     type: 3}
+  player: {fileID: 163417808}
+  loadingDistance: 150
 --- !u!4 &1312895333
 Transform:
   m_ObjectHideFlags: 0
@@ -373,7 +394,7 @@ Transform:
   m_GameObject: {fileID: 1312895331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
