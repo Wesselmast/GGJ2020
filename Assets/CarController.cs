@@ -9,6 +9,8 @@ public class CarController : MonoBehaviour
     public float speed;
     public float accelaration;
     public float maxSpeed;
+    public float maxBoostSpeed;
+    private float currentTurnSpeed;
 
     public float turnSpeed;
     [Range(0,1)]
@@ -21,6 +23,7 @@ public class CarController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        currentTurnSpeed = turnSpeed;
     }
 
     void FixedUpdate()
@@ -28,18 +31,29 @@ public class CarController : MonoBehaviour
 
 
         rb.MovePosition(transform.position + transform.forward * speed * Time.fixedDeltaTime);
-        rb.AddRelativeTorque(Vector3.up * Input.GetAxisRaw("Horizontal") * turnSpeed);
+        rb.AddRelativeTorque(Vector3.up * Input.GetAxisRaw("Horizontal") * currentTurnSpeed);
 
         Quaternion targetRotation = Quaternion.Euler(0, 0, -Input.GetAxisRaw("Horizontal") * 7);
-        Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 12.5f);
+        Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 20f);
 
-        speed += Time.deltaTime * accelaration;
-        speed = Mathf.Clamp(speed, -maxSpeed, maxSpeed);
+        if (Input.GetAxis("Trigger") > 0) {
+            speed += Time.deltaTime * accelaration + maxBoostSpeed * Input.GetAxis("Trigger") * Time.deltaTime;
+            if (currentTurnSpeed > turnSpeed * 0.5f) {
+                currentTurnSpeed -= Time.deltaTime;
+            }
+        } else {
+            speed -= Time.deltaTime * 4f;
+            if (currentTurnSpeed < turnSpeed) {
+                currentTurnSpeed += Time.deltaTime;
+            }
+        }
+        
+        speed = Mathf.Clamp(speed, maxSpeed, maxSpeed + maxBoostSpeed);
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        speed *= -bounceForce;
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    speed *= -bounceForce;
+    //}
 }
