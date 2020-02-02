@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Helicopter : MonoBehaviour
@@ -87,7 +86,6 @@ public class Helicopter : MonoBehaviour
         
         if (collision.relativeVelocity.magnitude > 25)
         {
-            EditorSceneManager.LoadScene(0);
             Destroy(gameObject);
         }
     }

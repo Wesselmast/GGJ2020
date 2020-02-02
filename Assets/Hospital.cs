@@ -23,6 +23,7 @@ public class Hospital : MonoBehaviour {
     private  void OnTriggerEnter(Collider other) {
         if (!enabled) return;
         if (other.tag == "Pawn") {
+            FindObjectOfType<wdadwaddw>().gameObject.SetActive(false);
             PlayerQuestManager.Instance.OnComplete();
             setEnabled(false);
         }

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Wessel/Scenes/TileSystemTest.unity
+    guid: 78752f92ab995064c838f312371797e0
   m_configObjects: {}

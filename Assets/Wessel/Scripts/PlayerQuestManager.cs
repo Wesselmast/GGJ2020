@@ -39,6 +39,7 @@ public class PlayerQuestManager : MonoBehaviour {
 
     public void OnComplete() {
         spawnerDistance += spawnerDistanceIncrement;
+        player.Find("BackSeat").gameObject.SetActive(false);
         FindObjectOfType<Timer>().AddTime();
         Assign(spawnerDistance);
     }
@@ -46,6 +47,7 @@ public class PlayerQuestManager : MonoBehaviour {
     public void OnGrabPatient() {
         Hospital[] ps = Resources.FindObjectsOfTypeAll(typeof(Hospital)) as Hospital[];
         ps[0].setEnabled(true);
+        player.gameObject.GetComponent<Animator>().Play("AmbulanceAnimation");
     }
 
     private void Assign(float distance) {

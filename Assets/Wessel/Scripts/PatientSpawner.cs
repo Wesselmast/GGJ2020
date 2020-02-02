@@ -33,6 +33,7 @@ public class PatientSpawner : MonoBehaviour {
         if (other.tag == "Pawn") {
             PlayerQuestManager.Instance.OnGrabPatient();
             active = false;
+            instance.SetActive(false);
         }
     }
 }
