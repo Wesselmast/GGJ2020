@@ -18,6 +18,7 @@ public class BuildingGenerator : MonoBehaviour {
         Gizmos.color = new Color(1.0f, 0.0f, 0.0f);
         Gizmos.DrawLine(new Vector3(-0.5f, 0.1f, -0.5f), new Vector3(-0.5f, 0.1f, -0.5f) + Vector3.left);
         Gizmos.DrawCube(new Vector3(-0.5f, 0.1f, -0.5f) + Vector3.left, Vector3.one * 0.1f);
+
     }
 
     void Build() {

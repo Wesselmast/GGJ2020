@@ -43,7 +43,8 @@ public class PlayerQuestManager : MonoBehaviour {
     }
 
     public void OnGrabPatient() {
-        GameObject.FindObjectOfType<Hospital>().setEnabled(true);
+        Hospital[] ps = Resources.FindObjectsOfTypeAll(typeof(Hospital)) as Hospital[];
+        ps[0].setEnabled(true);
     }
 
     private void Assign(float distance) {

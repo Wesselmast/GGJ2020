@@ -22,6 +22,7 @@ public class UIIcons : MonoBehaviour {
     }
 
     void Update() {
+        if (target == null) return;
         float minX = img.GetPixelAdjustedRect().width / 2;
         float maxX = Screen.width - minX;
 
