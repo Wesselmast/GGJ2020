@@ -763,11 +763,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  accelaration: 1
+  accelaration: 2
+  deaccelaration: 5
   maxSpeed: 15
+  reverseMaxSpeed: 8
   maxBoostSpeed: 12
   turnSpeed: 6
-  bounceForce: 0.66
+  boostTurnSpeed: 4
+  bounceForce: 0
   Chase: {fileID: 8358367496045077497}
 --- !u!1 &7590268257863651997
 GameObject:

@@ -8,11 +8,14 @@ public class CarController : MonoBehaviour
 
     public float speed;
     public float accelaration;
+    public float deaccelaration;
     public float maxSpeed;
+    public float reverseMaxSpeed;
     public float maxBoostSpeed;
     private float currentTurnSpeed;
 
     public float turnSpeed;
+    public float boostTurnSpeed;
     [Range(0,1)]
     public float bounceForce;
 
@@ -36,20 +39,45 @@ public class CarController : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(0, 0, -Input.GetAxisRaw("Horizontal") * 7);
         Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 20f);
 
-        if (Input.GetAxis("Trigger") > 0) {
-            speed += Time.deltaTime * accelaration + maxBoostSpeed * Input.GetAxis("Trigger") * Time.deltaTime;
-            if (currentTurnSpeed > turnSpeed * 0.5f) {
-                currentTurnSpeed -= Time.deltaTime;
+        Debug.Log(rb.velocity);
+        if (Input.GetAxis("Fire1") > 0) {
+            //backwards
+            if (speed > -reverseMaxSpeed) {
+                speed -= Time.fixedDeltaTime * accelaration * 10f;
+            }
+            
+        } else if (Input.GetAxis("Trigger") > 0) {
+            //boost
+            speed += Time.fixedDeltaTime * accelaration + maxBoostSpeed * Time.fixedDeltaTime;
+            if (currentTurnSpeed > boostTurnSpeed) {
+                currentTurnSpeed -= Time.fixedDeltaTime * 3f;
+            }
+            if (currentTurnSpeed < boostTurnSpeed) {
+                currentTurnSpeed += Time.fixedDeltaTime * 3f;
+            }
+            speed = Mathf.Clamp(speed, 0, maxSpeed + maxBoostSpeed);
+        } else if (Input.GetAxis("Jump") > 0) {
+
+            //forwards
+            speed += Time.fixedDeltaTime * accelaration;
+            if (speed > maxSpeed) {
+                speed -= Time.fixedDeltaTime * deaccelaration;
+            } else {
+                speed += Time.fixedDeltaTime * accelaration;
+            }
+            if (currentTurnSpeed < turnSpeed) {
+                currentTurnSpeed += Time.fixedDeltaTime * 3f;
             }
         } else {
-            speed -= Time.deltaTime * 4f;
-            if (currentTurnSpeed < turnSpeed) {
-                currentTurnSpeed += Time.deltaTime;
+            if (speed > 0) {
+                speed -= Time.fixedDeltaTime * deaccelaration;
+            } else if (speed < 0){
+                speed += Time.fixedDeltaTime * deaccelaration;
             }
-        }
-        
-        speed = Mathf.Clamp(speed, maxSpeed, maxSpeed + maxBoostSpeed);
-
+           if (currentTurnSpeed > 0) {
+                currentTurnSpeed -= Time.fixedDeltaTime;
+            }
+        } 
     }
 
     //private void OnCollisionEnter(Collision collision)
