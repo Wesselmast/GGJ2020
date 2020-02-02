@@ -45,9 +45,7 @@ public class CarController : MonoBehaviour
             if (speed > -reverseMaxSpeed) {
                 speed -= Time.fixedDeltaTime * accelaration * 10f;
             }
-            if (currentTurnSpeed < turnSpeed) {
-                currentTurnSpeed = (-speed) / maxSpeed * turnSpeed;
-            }
+                currentTurnSpeed = -(-speed) / maxSpeed * turnSpeed;
 
         } else if (Input.GetAxis("Trigger") > 0 || Input.GetKeyDown(KeyCode.Space)) {
             //boost
