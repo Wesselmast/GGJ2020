@@ -19,6 +19,7 @@ public class UIIcons : MonoBehaviour {
     private void Start() {
         camera = GetComponent<Camera>();
         player = FindObjectOfType<CarController>().transform;
+        img.enabled = false;
     }
 
     void Update() {
@@ -43,7 +44,14 @@ public class UIIcons : MonoBehaviour {
         distanceText.text = dist.ToString("F1") + "m";
     }
 
-    public void SetTarget(Transform target) {
+    public UIIcons SetTarget(Transform target) {
+        img.enabled = true;
         this.target = target;
+        return this;
+    }
+
+    public UIIcons SetTexture(Sprite tex) {
+        img.overrideSprite = tex;
+        return this;
     }
 }

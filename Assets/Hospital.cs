@@ -1,14 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hospital : MonoBehaviour {
-    private bool enabled = false;
+
+    [SerializeField] private Sprite img;
+
+    private bool enabled;
+
+    private void Start() {
+        enabled = false;
+    }
 
     public void setEnabled(bool enabled) {
         this.enabled = enabled;
         if (enabled) {
-            Camera.main.GetComponent<UIIcons>().SetTarget(transform);
+            Camera.main.GetComponent<UIIcons>().SetTarget(transform).SetTexture(img);
         }
     }
 

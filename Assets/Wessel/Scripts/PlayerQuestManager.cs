@@ -39,6 +39,7 @@ public class PlayerQuestManager : MonoBehaviour {
 
     public void OnComplete() {
         spawnerDistance += spawnerDistanceIncrement;
+        FindObjectOfType<Timer>().AddTime();
         Assign(spawnerDistance);
     }
 

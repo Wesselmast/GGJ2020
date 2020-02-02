@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PatientSpawner : MonoBehaviour {
+
+    [SerializeField]
+    private Sprite img = null;
 
     [SerializeField]
     private GameObject ragdoll;
@@ -13,7 +17,7 @@ public class PatientSpawner : MonoBehaviour {
     private UIIcons icons;
     private SphereCollider col;
 
-    private void Start() {
+    private void OnEnable() {
         icons = Camera.main.GetComponent<UIIcons>();
         col = GetComponent<SphereCollider>();
     }
@@ -21,12 +25,7 @@ public class PatientSpawner : MonoBehaviour {
     public void Spawn() {
         instance = Instantiate(ragdoll, transform.position + new Vector3(0.0f, 2f, 0.0f), transform.rotation);
         active = true;
-    }
-
-    private void Update() {
-        if (!active) return;
-        icons.SetTarget(transform);
-        //col.center = instance.transform.position;
+        icons.SetTarget(transform).SetTexture(img);
     }
 
     private void OnTriggerEnter(Collider other) {
