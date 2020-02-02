@@ -40,7 +40,7 @@ public class CarController : MonoBehaviour
         Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 20f);
 
         Debug.Log(rb.velocity);
-        if (Input.GetAxis("Jump") > 0) {
+        if (Input.GetAxis("Jump") > 0 || Input.GetAxis("Trigger") < 0) {
             //backwards
             if (speed > -reverseMaxSpeed) {
                 speed -= Time.fixedDeltaTime * accelaration * 10f;
@@ -77,7 +77,7 @@ public class CarController : MonoBehaviour
                 rb.velocity = Vector3.zero;
             }
            if (currentTurnSpeed > 0) {
-                currentTurnSpeed -= Time.fixedDeltaTime;
+                currentTurnSpeed = speed/maxSpeed * turnSpeed;
             }
         } 
     }
