@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 21300000, guid: 8877b25dda4e6a943bf96d26b1b11cd5, type: 3}
-  ragdoll: {fileID: 5082310349522032454, guid: 601712b4b6398ad4ca5e9bd914bccb18, type: 3}
+  ragdoll: {fileID: 1700304383506857666, guid: ad8bdbee76d5ba94aa8ffa0241e76747, type: 3}
 --- !u!135 &1073580657888538141
 SphereCollider:
   m_ObjectHideFlags: 0
