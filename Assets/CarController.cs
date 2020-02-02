@@ -51,11 +51,12 @@ public class CarController : MonoBehaviour
             //boost
             speed += Time.fixedDeltaTime * accelaration + maxBoostSpeed * Time.fixedDeltaTime;
             if (currentTurnSpeed > boostTurnSpeed) {
-                currentTurnSpeed -= Time.fixedDeltaTime * 3f;
+                currentTurnSpeed -= Time.fixedDeltaTime * 5f;
             }
             if (currentTurnSpeed < boostTurnSpeed) {
                 currentTurnSpeed += Time.fixedDeltaTime * 3f;
             }
+
             speed = Mathf.Clamp(speed, 0, maxSpeed + maxBoostSpeed);
         } else if (Input.GetAxis("Fire1") > 0 || Input.GetKeyDown(KeyCode.W)) {
 

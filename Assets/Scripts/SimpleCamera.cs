@@ -26,8 +26,8 @@ public class SimpleCamera : MonoBehaviour
 
         RaycastHit hit;
         Vector3 point;
-        if (Physics.Raycast(target.position, transform.position - target.position, out hit, targetToCameraDistance, collisionMask)) {
-            point = hit.point;
+        if (Physics.Raycast(target.position, pos - target.position, out hit, targetToCameraDistance, collisionMask)) {
+            point = hit.point + hit.normal;
             transform.position = point;
         } else {
             transform.position = Vector3.SmoothDamp(transform.position, pos, ref angleVelocity, 0.1f);
