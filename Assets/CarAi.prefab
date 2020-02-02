@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3596588542787030703}
   - component: {fileID: 5988722425247092330}
   - component: {fileID: 1396227850239405024}
-  - component: {fileID: 4400856757412054449}
   - component: {fileID: 7256082076868507305}
   m_Layer: 0
   m_Name: CarAi
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7875614234172614478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.7, y: 0.57455, z: 14.781964}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.14157, y: 0.14157, z: 0.14157}
   m_Children:
   - {fileID: 4425001062591616105}
   m_Father: {fileID: 0}
@@ -81,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4400856757412054449
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7875614234172614478}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7256082076868507305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1beeeca74c8fd694dab449ff68ace935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 16.86
   waitTime: 0
   turnSpeed: 500
   pathHolder: {fileID: 0}
@@ -120,12 +106,12 @@ PrefabInstance:
     - target: {fileID: 1079843434345327775, guid: e91634e3cc2c0af4aa8d80469391454f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0654
+      value: -1.438
       objectReference: {fileID: 0}
     - target: {fileID: 1079843434345327775, guid: e91634e3cc2c0af4aa8d80469391454f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.472
+      value: -1.245
       objectReference: {fileID: 0}
     - target: {fileID: 1079843434345327775, guid: e91634e3cc2c0af4aa8d80469391454f,
         type: 3}
