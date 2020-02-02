@@ -43,7 +43,11 @@ public class CarController : MonoBehaviour
         if (Input.GetAxis("Jump") > 0 || Input.GetAxis("Trigger") < 0 || Input.GetKeyDown(KeyCode.S)) {
             //backwards
             if (speed > -reverseMaxSpeed) {
-                speed -= Time.fixedDeltaTime * accelaration * 10f;
+                if (rb.velocity.sqrMagnitude > 0.01f && speed >= 0) {
+                    speed = 0;
+                    currentTurnSpeed = 0;
+                }
+                speed -= Time.fixedDeltaTime * accelaration * 5f;
             }
                 currentTurnSpeed = -(-speed) / maxSpeed * turnSpeed;
 
