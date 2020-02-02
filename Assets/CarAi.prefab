@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5988722425247092330}
   - component: {fileID: 1396227850239405024}
   - component: {fileID: 7256082076868507305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CarAi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
