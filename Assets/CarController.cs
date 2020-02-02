@@ -39,7 +39,7 @@ public class CarController : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(0, 0, -Input.GetAxisRaw("Horizontal") * 7);
         Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 20f);
 
-        Debug.Log(rb.velocity);
+
         if (Input.GetAxis("Jump") > 0 || Input.GetAxis("Trigger") < 0) {
             //backwards
             if (speed > -reverseMaxSpeed) {
