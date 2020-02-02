@@ -45,7 +45,10 @@ public class CarController : MonoBehaviour
             if (speed > -reverseMaxSpeed) {
                 speed -= Time.fixedDeltaTime * accelaration * 10f;
             }
-            
+            if (currentTurnSpeed < turnSpeed) {
+                currentTurnSpeed = (-speed) / maxSpeed * turnSpeed;
+            }
+
         } else if (Input.GetAxis("Trigger") > 0 || Input.GetKeyDown(KeyCode.Space)) {
             //boost
             speed += Time.fixedDeltaTime * accelaration + maxBoostSpeed * Time.fixedDeltaTime;
@@ -66,7 +69,7 @@ public class CarController : MonoBehaviour
                 speed += Time.fixedDeltaTime * accelaration;
             }
             if (currentTurnSpeed < turnSpeed) {
-                currentTurnSpeed += Time.fixedDeltaTime * 3f;
+                currentTurnSpeed = speed / maxSpeed * turnSpeed;
             }
         } else {
             if (speed > 0) {
