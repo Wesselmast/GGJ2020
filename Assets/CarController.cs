@@ -40,7 +40,7 @@ public class CarController : MonoBehaviour
         Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 20f);
 
         Debug.Log(rb.velocity);
-        if (Input.GetAxis("Fire1") > 0) {
+        if (Input.GetAxis("Jump") > 0) {
             //backwards
             if (speed > -reverseMaxSpeed) {
                 speed -= Time.fixedDeltaTime * accelaration * 10f;
@@ -56,7 +56,7 @@ public class CarController : MonoBehaviour
                 currentTurnSpeed += Time.fixedDeltaTime * 3f;
             }
             speed = Mathf.Clamp(speed, 0, maxSpeed + maxBoostSpeed);
-        } else if (Input.GetAxis("Jump") > 0) {
+        } else if (Input.GetAxis("Fire1") > 0) {
 
             //forwards
             speed += Time.fixedDeltaTime * accelaration;
@@ -73,6 +73,8 @@ public class CarController : MonoBehaviour
                 speed -= Time.fixedDeltaTime * deaccelaration;
             } else if (speed < 0){
                 speed += Time.fixedDeltaTime * deaccelaration;
+            } else {
+                rb.velocity = Vector3.zero;
             }
            if (currentTurnSpeed > 0) {
                 currentTurnSpeed -= Time.fixedDeltaTime;
@@ -80,8 +82,12 @@ public class CarController : MonoBehaviour
         } 
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    speed *= -bounceForce;
-    //}
+    private void OnCollisionEnter(Collision collision) {
+        //speed *= -bounceForce;
+        rb.velocity = Vector3.zero;
+    }
+
+    private void OnCollisionExit(Collision collision) {
+        rb.velocity = Vector3.zero;
+    }
 }
