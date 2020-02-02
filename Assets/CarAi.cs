@@ -41,7 +41,8 @@ public class CarAi : MonoBehaviour
                 targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
                 targetWaypoint = waypoints[targetWaypointIndex];
                 //yield return new WaitForSeconds(waitTime);
-                StartCoroutine(TurnToFace(targetWaypoint));
+                //StartCoroutine(TurnToFace(targetWaypoint));
+                transform.rotation = Quaternion.LookRotation(targetWaypoint - transform.position);
             }
             yield return null;
         }

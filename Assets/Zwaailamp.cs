@@ -21,7 +21,7 @@ public class Zwaailamp : MonoBehaviour
     void Update()
     {
         t += Time.deltaTime;
-        Debug.Log(t);
+
         if(t > interval)
         {
             on = !on;
