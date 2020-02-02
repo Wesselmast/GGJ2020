@@ -663,6 +663,7 @@ MonoBehaviour:
   extraTiles:
   - {fileID: 3193491872939923550, guid: d59741dcb5120b5468b635963bf37da7, type: 3}
   - {fileID: 3193491872939923550, guid: 2e824b60ca7b93a429ec9541461a1293, type: 3}
+  - {fileID: 3193491872939923550, guid: d80336d9407eb004c8cee689f6669d58, type: 3}
   patientTiles: []
   homeTile: {fileID: 3193491872939923550, guid: 0177b8c9db5186046b4aef3d3f29fb76,
     type: 3}
