@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 2780485821229950986}
   m_Layer: 0
   m_Name: Ambulance (1)
-  m_TagString: Untagged
+  m_TagString: Pawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,7 +710,7 @@ Transform:
   m_GameObject: {fileID: 7478868005148710706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.30694, y: -0.197, z: 3.3137}
-  m_LocalScale: {x: 1.7771131, y: 1.7771131, z: 1.7771131}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 8358367496045077497}
   - {fileID: 1732517721419426590}
@@ -732,10 +732,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0.5
   m_AngularDrag: 0.5
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &1507487364705203991
 BoxCollider:
@@ -762,11 +762,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4626fdce238727c40bd22d663a56e2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  accelaration: 2
-  maxSpeed: 3
-  turnSpeed: 0.6
-  bounceForce: 0.35
+  speed: 4
+  accelaration: 4
+  maxSpeed: 15
+  turnSpeed: 1.2
+  bounceForce: 0.286
   Chase: {fileID: 8358367496045077497}
 --- !u!1 &7590268257863651997
 GameObject:
