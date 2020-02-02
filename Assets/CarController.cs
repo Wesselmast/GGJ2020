@@ -40,13 +40,16 @@ public class CarController : MonoBehaviour
         Chase.localRotation = Quaternion.RotateTowards(Chase.localRotation, targetRotation, Time.deltaTime * 20f);
 
 
-        if (Input.GetAxis("Jump") > 0 || Input.GetAxis("Trigger") < 0) {
+        if (Input.GetAxis("Jump") > 0 || Input.GetAxis("Trigger") < 0 || Input.GetKeyDown(KeyCode.S)) {
             //backwards
             if (speed > -reverseMaxSpeed) {
                 speed -= Time.fixedDeltaTime * accelaration * 10f;
             }
-            
-        } else if (Input.GetAxis("Trigger") > 0) {
+            if (currentTurnSpeed < turnSpeed) {
+                currentTurnSpeed = (-speed) / maxSpeed * turnSpeed;
+            }
+
+        } else if (Input.GetAxis("Trigger") > 0 || Input.GetKeyDown(KeyCode.Space)) {
             //boost
             speed += Time.fixedDeltaTime * accelaration + maxBoostSpeed * Time.fixedDeltaTime;
             if (currentTurnSpeed > boostTurnSpeed) {
@@ -56,7 +59,7 @@ public class CarController : MonoBehaviour
                 currentTurnSpeed += Time.fixedDeltaTime * 3f;
             }
             speed = Mathf.Clamp(speed, 0, maxSpeed + maxBoostSpeed);
-        } else if (Input.GetAxis("Fire1") > 0) {
+        } else if (Input.GetAxis("Fire1") > 0 || Input.GetKeyDown(KeyCode.W)) {
 
             //forwards
             speed += Time.fixedDeltaTime * accelaration;
@@ -66,7 +69,7 @@ public class CarController : MonoBehaviour
                 speed += Time.fixedDeltaTime * accelaration;
             }
             if (currentTurnSpeed < turnSpeed) {
-                currentTurnSpeed += Time.fixedDeltaTime * 3f;
+                currentTurnSpeed = speed / maxSpeed * turnSpeed;
             }
         } else {
             if (speed > 0) {
