@@ -11,7 +11,7 @@ public class CarAi : MonoBehaviour
 
     public Transform pathHolder;
 
-    void Start()
+    void OnEnable()
     {
 
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
