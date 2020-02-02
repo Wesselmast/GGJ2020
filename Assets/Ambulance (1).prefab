@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 187922007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 1657312460694114104}
   - component: {fileID: 328126198903997514}
   - component: {fileID: 670566910788676016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_LightBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 2519814354123574398}
   - component: {fileID: 2954729444293102975}
   - component: {fileID: 3937169481302973094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_LightBlue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 7558513763931570735}
   - component: {fileID: 3418617433371304692}
   - component: {fileID: 278393136416483811}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_DoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 1932213609865123329}
   - component: {fileID: 812907718782786787}
   - component: {fileID: 1519799392694756397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_LightRed3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 4896036069136298495}
   - component: {fileID: 863509916883770244}
   - component: {fileID: 8656496315090720575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_LightBlue3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 1732517721419426590}
   - component: {fileID: 8578373210262577968}
   - component: {fileID: 5496823963950060899}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_Wheel_LeftBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 8358367496045077497}
   - component: {fileID: 8163019029360899444}
   - component: {fileID: 371916980282993121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_Chassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 7868973901320020842}
   - component: {fileID: 3192120949250625107}
   - component: {fileID: 8098223518857028279}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_DoorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 1507487364705203988}
   - component: {fileID: 1507487364705203991}
   - component: {fileID: 2780485821229950986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance (1)
   m_TagString: Pawn
   m_Icon: {fileID: 0}
@@ -763,13 +763,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  accelaration: 2
-  deaccelaration: 5
+  accelaration: 4
+  deaccelaration: 8
   maxSpeed: 15
   reverseMaxSpeed: 8
   maxBoostSpeed: 12
-  turnSpeed: 6
-  boostTurnSpeed: 4
+  turnSpeed: 5
+  boostTurnSpeed: 3.5
   bounceForce: 0
   Chase: {fileID: 8358367496045077497}
 --- !u!1 &7590268257863651997
@@ -783,8 +783,12 @@ GameObject:
   - component: {fileID: 8637169366561550174}
   - component: {fileID: 6549959962306521262}
   - component: {fileID: 3657865909594932661}
+<<<<<<< HEAD
   - component: {fileID: 4429508046810402053}
   m_Layer: 0
+=======
+  m_Layer: 8
+>>>>>>> d62ce9205a043b3af6a257ef8dacb58bf3213763
   m_Name: Ambulance_Siren
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +885,7 @@ GameObject:
   - component: {fileID: 4982197308271594997}
   - component: {fileID: 5481239568629856911}
   - component: {fileID: 8223853229000932581}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_LightRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -958,7 +962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7346878433541462262}
   - component: {fileID: 5528845770382113865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,7 +1011,7 @@ GameObject:
   - component: {fileID: 173553688850464330}
   - component: {fileID: 90729778386162962}
   - component: {fileID: 3080494183916777758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_Wheel_LeftFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,7 +1090,7 @@ GameObject:
   - component: {fileID: 2643915109168685640}
   - component: {fileID: 936478582732190484}
   - component: {fileID: 6106020788649475370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_Wheel_RightFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1165,7 +1169,7 @@ GameObject:
   - component: {fileID: 3259851943949276754}
   - component: {fileID: 8354679061872604042}
   - component: {fileID: 1305915148921797266}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_LightBlue2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1243,7 +1247,7 @@ GameObject:
   - component: {fileID: 823943069664775021}
   - component: {fileID: 3366629367484574194}
   - component: {fileID: 536399943011388901}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_LightRed2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2897617240133859354}
   - component: {fileID: 2097751132764833994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,7 +1373,7 @@ GameObject:
   - component: {fileID: 845975461608142609}
   - component: {fileID: 8771518129031280944}
   - component: {fileID: 1894701381680832594}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_Wheel_RightBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1448,7 +1452,7 @@ GameObject:
   - component: {fileID: 4001733904539669129}
   - component: {fileID: 2136607388369352385}
   - component: {fileID: 4046148596264935195}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ambulance_LightRed1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
