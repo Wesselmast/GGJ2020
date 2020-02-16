@@ -27,8 +27,15 @@ public class PlayerQuestManager : MonoBehaviour {
         }
     }
 
-    private void Start() {
+    private void OnEnable() {
         WorldGenerator.OnLoadWorld += OnLoad;
+    }
+
+    private void OnDisable() {
+        WorldGenerator.OnLoadWorld -= OnLoad;
+    }
+
+    private void Start() {
         player = GameObject.FindObjectOfType<CarController>().transform;
         spawnerDistance = startSpawnerDistance;
     }
@@ -40,13 +47,15 @@ public class PlayerQuestManager : MonoBehaviour {
     public void OnComplete() {
         spawnerDistance += spawnerDistanceIncrement;
         player.Find("BackSeat").gameObject.SetActive(false);
-        FindObjectOfType<Timer>().AddTime();
+        FindObjectOfType<Timer>().AddTime(1.0f);
         Assign(spawnerDistance);
     }
 
     public void OnGrabPatient() {
         Hospital[] ps = Resources.FindObjectsOfTypeAll(typeof(Hospital)) as Hospital[];
         ps[0].setEnabled(true);
+        FindObjectOfType<Timer>().AddTime(0.5f);
+        player.Find("BackSeat").gameObject.SetActive(true);
         player.gameObject.GetComponent<Animator>().Play("AmbulanceAnimation");
     }
 

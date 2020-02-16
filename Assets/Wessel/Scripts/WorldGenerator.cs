@@ -40,7 +40,7 @@ public class WorldGenerator : MonoBehaviour {
     private void Start() {
         Spawn(homeTile, 0, 0);
 
-        int worldSize = 15;
+        int worldSize = 20;
 
         for (int x = -worldSize; x < worldSize + 1; x++) {
             for (int y = -worldSize; y < worldSize + 1; y++) {

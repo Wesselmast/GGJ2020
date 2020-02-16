@@ -56,16 +56,17 @@ public class Timer : MonoBehaviour {
         source.Stop();
         source.clip = beeeeeeeep;
         source.Play();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.25f);
         panelFade.Play("FadeIn");
         yield return new WaitForSeconds(0.75f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     public void ResetTime() {
         time = startSeconds;
     }
 
-    public void AddTime() {
-        time += startSeconds;
+    public void AddTime(float times = 1) {
+        time += startSeconds * times;
     }
 }

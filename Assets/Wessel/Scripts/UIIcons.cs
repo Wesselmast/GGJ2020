@@ -20,6 +20,7 @@ public class UIIcons : MonoBehaviour {
         camera = GetComponent<Camera>();
         player = FindObjectOfType<CarController>().transform;
         img.enabled = false;
+        target = gameObject.transform;
     }
 
     void Update() {
